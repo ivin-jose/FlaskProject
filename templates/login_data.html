@@ -1,0 +1,20 @@
+{% extends 'base.html'%}
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Login Datas</title>
+</head>
+ID          Name       Password     Hobby  Age<br><br>
+{% for datas in data %}
+{{ datas[0] }} - {{ datas[1] }} - {{ datas[2] }} - {{ datas[3] }} - {{ datas[4] }}<br><br>
+{% endfor %}
+<body><br><br>
+<form method="get" action="/login">
+    <button type="submit" class="btn btn-danger">Return</button>
+</form>
+
+</body>
+</html>
+{% endblock %}

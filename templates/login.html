@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Login page</title>
+</head>
+<body>
+<center>
+    <h3><font color="blue" face="verdana">Login here!<br>-------------</font> </h3><br><br>
+<form method="post">
+{{ form.hidden_tag() }}
+{{ form.name.label(class="h5") }}
+{{ form.name(class="col-form-label" ) }}<br><br>
+{{ form.password.label(class="h5") }}
+{{ form.password(class="col-form-label") }}<br><br>
+{{ form.hobby.label(class="h5") }}
+{{ form.hobby(class="col-form-label") }}<br><br>
+{{ form.age.label(class="h5") }}
+{{ form.age(class="col-form-label") }}<br><br>
+{{ form.submit(class="btn btn-warning") }}
+</form>
+
+</center>
+Hi  {{ name }},
+Your hobby is {{ hobby }}
+{{ password }}
+{{ age }}
+</body>
+</html>
+{% endblock %}
