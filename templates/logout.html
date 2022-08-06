@@ -8,19 +8,15 @@
 <body>
 <center>
     <h3><font color="blue" face="verdana">logout !<br>-------------</font> </h3><br><br>
-<form method="POST">
-    {{ form.hidden_tag() }}
+<form  method="POST">
+    <input type="number" name="id" required>
+    <input type="text" name="name">
+    <input type="password" name="password">
+    <input type="submit" name="delete">
 
-    {{ form.id.label }}
-    {{ form.id }}<br><br>
-    {{ form.name.label(class="h5") }}
-    {{ form.name(class="col-form-label" ) }}<br><br>
-    {{ form.password.label(class="h5") }}
-    {{ form.password(class="col-form-label") }}<br><br>
-    {{ form.submit(class="btn btn-warning") }}
 </form>
-{{ id }}
-    {{name}}
+    {{ name }}{{ message }}
+    {{ error_message }}
 </center>
 </body>
 {% endblock%}

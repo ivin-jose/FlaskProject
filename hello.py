@@ -136,17 +136,17 @@ def logout():
     id = " "
     name = " "
     password = " "
-    if request.method == "POST":
-        id = form.id.data
-        name = form.name.data
-        password = form.password.data
-        form.id.data=""
-        form.name.data=""
-        sid = 10
-        delete = """DELETE from user_info WHERE id=%s"""
-        cursor.execute(delete,(id, ))
-        mydb.commit()
-
-
-
-    return render_template('logout.html',form=form,id=id,name=name,password=password)
+    message = " Deleted successfully !"
+    error_message="something wrong"
+    try:
+        if request.method == "POST":
+            id = request.form.get('id')
+            name = request.form.get('name')
+            password = request.form.get('password')
+            sid = 10
+            delete = """DELETE from user_info WHERE id=%s"""
+            cursor.execute(delete,(id, ))
+            mydb.commit()
+        return render_template('logout.html',form=form,id=id,name=name,password=password,message=message)
+    except:
+        return render_template(error_message=error_message)
