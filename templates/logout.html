@@ -1,22 +1,31 @@
+<!DOCTYPE html>
 {% extends 'base.html' %}
 {% block content %}
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>logout page</title>
+
 </head>
-<body>
 <center>
-    <h3><font color="blue" face="verdana">logout !<br>-------------</font> </h3><br><br>
+<body>
+
+    <h3><font color="red" face="verdana">logout !</font> </h3><br><br>
+<div class="form">
 <form  method="POST">
-    <input type="number" name="id" required>
-    <input type="text" name="name">
-    <input type="password" name="password">
-    <input type="submit" name="delete">
+    <label>id</label>
+    <input type="number" name="id" required><br><br>
+    <label>Name </label>
+    <input type="text" name="name"><br><br>
+    <label>Password</label>
+    <input type="password" name="password"><br><br>
+    <input type="submit" value="Delete" class="btn btn-warning"><br>
 
 </form>
-    {{ name }}{{ message }}
-    {{ error_message }}
+    </div>
+{% if name %}
+{{ name }}{{ message }}
+{% endif %}
 </center>
 </body>
 {% endblock%}

@@ -1,7 +1,36 @@
-h1{
-   color: red;
-   font-size:60px;
-}
-body{
-    background: #f4f4f4;
-}
+div.form{
+     background:grey;
+     width:15cm;
+     color:yellow;
+     padding: 10px 20px;
+     border-radius: 10px;
+     }
+
+ label{
+      width: 100px;
+      display: inline-block;
+      margin: 0.2cm;
+      font-size: 16px;
+      font-weight:bold;
+      }
+
+ input{
+    padding: 4px;
+    margin: 5px;
+    font-size 16px;
+    border-radius: 10px;
+    width: 7cm;
+    }
+ h3 {
+   font-family: "Trebuchet MS",sans-serif;
+   font-size: 1cm;
+   letter-spacing: -1px;
+   text-transform: uppercase;
+
+
+ }
+
+
+
+
+

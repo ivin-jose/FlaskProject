@@ -50,10 +50,10 @@ mydb = mysql.connector.connect(
 cursor = mydb.cursor()
 # creating class for login page
 class loginForm(FlaskForm):
-    name = StringField('Enter name')
-    password = PasswordField('Enter passwd')
-    hobby = StringField('Enter hobby ')
-    age = IntegerField('Enter age .')
+    name = StringField('name')
+    password = PasswordField('password')
+    hobby = StringField('hobby ')
+    age = IntegerField('age .')
     submit = SubmitField('Login')
 
 
@@ -133,9 +133,9 @@ class logoutform(FlaskForm):
 @app.route('/logout', methods=['GET', 'POST'])
 def logout():
     form = logoutform('/logout')
-    id = " "
-    name = " "
-    password = " "
+    id = None
+    name = None
+    password = None
     message = " Deleted successfully !"
     error_message="something wrong"
     try:

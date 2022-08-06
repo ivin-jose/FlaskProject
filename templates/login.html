@@ -8,15 +8,15 @@
 </head>
 <body>
 <center>
-    <h3><font color="blue" face="verdana">Login here!<br>-------------</font> </h3><br><br>
+    <h3><font color="blue" face="verdana">Login here!</font> </h3><br><br>
 <form method="post">
 {{ form.hidden_tag() }}
 {{ form.name.label(class="h5") }}
-{{ form.name(class="col-form-label" ) }}<br><br>
+{{ form.name(class="col-form-label" ) }}<br>
 {{ form.password.label(class="h5") }}
-{{ form.password(class="col-form-label") }}<br><br>
+{{ form.password(class="col-form-label") }}<br>
 {{ form.hobby.label(class="h5") }}
-{{ form.hobby(class="col-form-label") }}<br><br>
+{{ form.hobby(class="col-form-label") }}<br>
 {{ form.age.label(class="h5") }}
 {{ form.age(class="col-form-label") }}<br><br>
 {{ form.submit(class="btn btn-warning") }}
