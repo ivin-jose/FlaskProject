@@ -1,6 +1,6 @@
 {% extends 'base.html' %}
 {% block content %}
-<html lang="en" xmlns="http://www.w3.org/1999/html">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>logout page</title>
@@ -9,8 +9,15 @@
 <center>
     <h3><font color="blue" face="verdana">logout !<br>-------------</font> </h3><br><br>
 <form method="POST">
-    <input type="number" name="id">
-    <input type="submit">
+    {{ form.hidden_tag() }}
+
+    {{ form.id.label }}
+    {{ form.id }}<br><br>
+    {{ form.name.label(class="h5") }}
+    {{ form.name(class="col-form-label" ) }}<br><br>
+    {{ form.password.label(class="h5") }}
+    {{ form.password(class="col-form-label") }}<br><br>
+    {{ form.submit(class="btn btn-warning") }}
 </form>
 {{ id }}
     {{name}}
