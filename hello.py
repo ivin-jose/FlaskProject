@@ -59,7 +59,7 @@ class loginForm(FlaskForm):
 
 
 # login page
-@app.route('/login',methods=['GET','POST'])
+@app.route('/logins',methods=['GET','POST'])
 def login():
     name = ''
     password = ''
