@@ -4,6 +4,8 @@ from wtforms import StringField,SubmitField,EmailField,PasswordField,IntegerFiel
 from wtforms.validators import DataRequired
 from flask_sqlalchemy import SQLAlchemy
 import mysql.connector
+from werkzeug.security import generate_password_hash, check_password_hash
+
 #import MySQLdb
 import datetime
 # Create a Flask Interface
@@ -16,7 +18,30 @@ app.config['SECRET_KEY'] = "something fishy"
 # initialising databse
 db = SQLAlchemy(app)
 
+# db model database
 
+class Users(db.Model):
+    id = db.Column(db.Integer,primery_key=True)
+    name = db.Column(db.String(200),nullable=False)
+    password = db.Column(db.String(200), nullable=False)
+    hobby = db.Column(db.String(200), nullable=False)
+    age = db.Column(db.Integer(), nullable=False)
+
+    ''' Hashing of the password '''
+    @property
+    def password(self):
+        raise AttributeError('password is not a readable attribute')
+
+    @password.setter
+    def password(self,password):
+        self.password = generate_password_hash(password)
+
+    def verify_password(self,password):
+        return check_password_hash(self.password)
+
+
+    def __repr__(self):
+        return '<name> %r' %self.name
 
 
 # create a route decorator
