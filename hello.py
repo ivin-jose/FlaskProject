@@ -20,28 +20,17 @@ db = SQLAlchemy(app)
 
 # db model database
 
-class Users(db.Model):
-    id = db.Column(db.Integer,primery_key=True)
-    name = db.Column(db.String(200),nullable=False)
-    password = db.Column(db.String(200), nullable=False)
-    hobby = db.Column(db.String(200), nullable=False)
-    age = db.Column(db.Integer(), nullable=False)
+''' Hashing of the password '''
+@property
+def password(self):
+    raise AttributeError('password is not a readable attribute')
 
-    ''' Hashing of the password '''
-    @property
-    def password(self):
-        raise AttributeError('password is not a readable attribute')
+@password.setter
+def password(self,password):
+    self.password = generate_password_hash(password)
 
-    @password.setter
-    def password(self,password):
-        self.password = generate_password_hash(password)
-
-    def verify_password(self,password):
-        return check_password_hash(self.password)
-
-
-    def __repr__(self):
-        return '<name> %r' %self.name
+def verify_password(self,password):
+    return check_password_hash(self.password)
 
 
 # create a route decorator
@@ -84,7 +73,7 @@ class loginForm(FlaskForm):
 
 
 # login page
-@app.route('/logins',methods=['GET','POST'])
+@app.route('/login',methods=['GET','POST'])
 def login():
     name = ''
     password = ''
@@ -175,3 +164,7 @@ def logout():
         return render_template('logout.html',form=form,id=id,name=name,password=password,message=message)
     except:
         return render_template(error_message=error_message)
+
+@app.route('/createblog',methods=['GET','POST'])
+def addblog():
+    return render_template('blogform.html')
